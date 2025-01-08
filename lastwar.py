@@ -83,13 +83,15 @@ position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: white;
-color: black;
 text-align: center;
 }
 </style>
 <div class="footer">
-<p>Developed with ❤ by thiagobc23 | #54 WRG <a style='display: block; text-align: center;' href="https://ko-fi.com/thiagobc23" target="_blank">Enjoyed your visit? Show your support with a tip!</a></p>
+<p>
+Developed with ❤ by thiagobc23 and JKamsker.
+
+Too much money? <a href="https://lastwar-h5.lastwargame.com/pay/index.html?uid=1901206986000982">Send it my way</a> or <a href="https://www.paypal.com/paypalme/jdawg1337"> Paypal</a>
+</p>
 </div>
 """
 
@@ -394,5 +396,3 @@ with tab6:
         st.success(f'Total Required Shards: {st.session_state["total_shards"]}')
     except ValueError as e:
         st.error(f'Error: {e}')
-
-    st.markdown('Developed with ❤ by [Your Name]', unsafe_allow_html=True)
