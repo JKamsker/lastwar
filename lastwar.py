@@ -90,7 +90,7 @@ text-align: center;
 <p>
 Developed with ❤ by thiagobc23 and JKamsker.
 
-Too much money? <a href="https://lastwar-h5.lastwargame.com/pay/index.html?uid=1901206986000982">Send it my way</a> or <a href="https://www.paypal.com/paypalme/jdawg1337"> Paypal</a>
+Too much money? <a href="https://lastwar-h5.lastwargame.com/pay/index.html?uid=1901206986000982">Send it my way</a> or <a href="https://www.paypal.com/paypalme/jdawg1337"> Paypal ❤</a>
 </p>
 </div>
 """
