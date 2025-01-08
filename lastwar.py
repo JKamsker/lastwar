@@ -266,7 +266,7 @@ with tab4:
     st.markdown(footer,unsafe_allow_html=True)
 
 
-streamlit_analytics.stop_tracking()
+
 
 ######################################################################################################
 ######################################################################################################
@@ -396,3 +396,5 @@ with tab6:
         st.success(f'Total Required Shards: {st.session_state["total_shards"]}')
     except ValueError as e:
         st.error(f'Error: {e}')
+
+streamlit_analytics.stop_tracking()
