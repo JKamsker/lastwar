@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import streamlit_analytics
 import matplotlib.pyplot as plt
+from shard_calculator import StarShardCalculator
 
 st.set_page_config(
         page_title="Last War Calculator",
@@ -101,7 +102,7 @@ st.title('Last War Calculator')
 
 
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Hero Exp", "Speed-Up", "Stamina", "Loot Load", "Farm Output"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Hero Exp", "Speed-Up", "Stamina", "Loot Load", "Farm Output", "Shard Calculator"])
 
 ###############################################TABS###################################################
 ######################################################################################################
@@ -352,3 +353,46 @@ with tab5:
         else:
             st.write('Total Output Per Day:', output_per_hour*24)
 
+
+with tab6:
+    st.header('Shard Calculator')
+
+    # Initialize session state variables
+    if 'full_stars' not in st.session_state:
+        st.session_state['full_stars'] = 0
+    if 'current_tier' not in st.session_state:
+        st.session_state['current_tier'] = 0
+    if 'target_star' not in st.session_state:
+        st.session_state['target_star'] = 1
+    if 'total_shards' not in st.session_state:
+        st.session_state['total_shards'] = 0
+
+    # Input fields with session state binding
+    full_stars = st.number_input(
+        'Current Star Level (0-4):', 
+        min_value=0, max_value=4, value=st.session_state['full_stars'], 
+        step=1, key='full_stars'
+    )
+    current_tier = st.number_input(
+        'Current Tier Fragments (0-5):', 
+        min_value=0, max_value=5, value=st.session_state['current_tier'], 
+        step=1, key='current_tier'
+    )
+    target_star = st.number_input(
+        'Target Star Level (1-5):', 
+        min_value=1, max_value=5, value=st.session_state['target_star'], 
+        step=1, key='target_star'
+    )
+
+    # Automatic calculation based on user input
+    try:
+        st.session_state['total_shards'] = StarShardCalculator.calculate_required_shards(
+            st.session_state['full_stars'], 
+            st.session_state['current_tier'], 
+            st.session_state['target_star']
+        )
+        st.success(f'Total Required Shards: {st.session_state["total_shards"]}')
+    except ValueError as e:
+        st.error(f'Error: {e}')
+
+    st.markdown('Developed with ❤ by [Your Name]', unsafe_allow_html=True)
