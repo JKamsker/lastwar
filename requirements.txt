@@ -1,2 +1,2 @@
-streamlit-analytics
+streamlit-analytics2
 matplotlib

@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import streamlit_analytics
+import streamlit_analytics2 as streamlit_analytics
 import matplotlib.pyplot as plt
 from shard_calculator import StarShardCalculator
 
